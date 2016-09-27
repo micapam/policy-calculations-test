@@ -25,5 +25,20 @@ describe RangeBracket do
       let(:range_opts) { { min: 15, max: 25 } }
       it { is_expected.not_to be_valid }
     end
+
+    context 'without minimum' do
+      let(:range_opts) { { max: 5 } }
+      it { is_expected.to be_valid }
+    end
+
+    context 'without maximum' do
+      let(:range_opts) { { min: 25 }}
+      it { is_expected.to be_valid }
+    end
+
+    context 'without either' do
+      let(:range_opts) { { } }
+      it { is_expected.not_to be_valid }
+    end
   end
 end

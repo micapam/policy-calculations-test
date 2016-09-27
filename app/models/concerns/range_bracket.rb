@@ -8,5 +8,6 @@ module RangeBracket
 
   included do
     validates :min, :max, overlap: true
+    validates_with AnyPresenceValidator, fields: %w(min max)
   end
 end
