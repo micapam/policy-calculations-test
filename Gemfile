@@ -6,6 +6,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'flipper'
+gem 'validates_overlap'
 
 group :development, :test do
   gem 'byebug'
@@ -24,4 +25,6 @@ group :test do
   gem 'fabrication', '~> 2.15'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'selenium-webdriver'
+  gem 'database_cleaner', '~> 1.5.3'
+  gem 'with_model', '~> 1.2.1'
 end
