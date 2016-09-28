@@ -10,6 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160928003258) do
+
+  create_table "age_brackets", force: :cascade do |t|
+    t.integer  "min"
+    t.integer  "max"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.integer  "cost"
+    t.integer  "age_bracket_id"
+    t.integer  "trip_duration_bracket_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["age_bracket_id"], name: "index_prices_on_age_bracket_id"
+    t.index ["trip_duration_bracket_id"], name: "index_prices_on_trip_duration_bracket_id"
+  end
+
+  create_table "trip_duration_brackets", force: :cascade do |t|
+    t.integer  "min"
+    t.integer  "max"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
