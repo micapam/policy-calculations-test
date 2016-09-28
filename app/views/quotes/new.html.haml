@@ -1,7 +1,16 @@
 %h1 Calculate price
 %p So that we can calculate the price of your insurance, please tell us a couple of facts.
-
 = simple_form_for(@quote, html: { class: 'form-horizontal' }) do |f|
-  = f.input :age, required: true
+  - if feature_on? :birthday_ui
+    .row
+      .col-md-4
+        = f.input :dob_day, as: :numeric
+      .col-md-4
+        = f.input :dob_month, collection: @months
+      .col-md-4
+        = f.input :dob_year, as: :numeric
+    -# %input{ 'data-provide' => 'datepicker' }
+  - else
+    = f.input :age, required: true
   = f.input :trip_duration, required: true
   = f.submit 'Get quote'

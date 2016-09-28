@@ -6,12 +6,17 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'flipper'
+gem 'flipper-rails'
+gem 'flipper-active_record'
+gem 'flipper-ui'
 gem 'validates_overlap'
 gem 'jquery-rails'
 gem 'haml', '~> 4.0.7'
 gem 'haml-rails', '~> 0.9'
 gem 'simple_form'
 gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'reform', '2.1'
+gem 'time_diff'
 
 group :development, :test do
   gem 'byebug'
@@ -32,4 +37,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner', '~> 1.5.3'
   gem 'with_model', '~> 1.2.1'
+  gem 'launchy'
 end

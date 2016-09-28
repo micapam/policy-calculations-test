@@ -34,5 +34,10 @@ module PolicyCalculationsTest
       g.view_specs false
       g.decorator false
     end
+
+    config.flipper = {
+      adapter: Flipper::Adapters::ActiveRecord,
+      adapter_options: {}
+    }
   end
 end

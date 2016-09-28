@@ -22,3 +22,9 @@ durations = ranges_to_models TripDurationBracket, [1, 7], [8, 14], [15, 21], [22
      end
    end
 end
+
+# Set up features (initially switched off) so they show up in the Flipper UI.
+
+%w(birthday_ui holiday_ui).each do |feature_name|
+  Flipper::Rails.flipper.disable feature_name.to_sym
+end

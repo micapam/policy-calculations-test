@@ -16,7 +16,7 @@ DatabaseCleaner.strategy = :truncation
 # Spinach.config.save_and_open_page_on_failure = true
 
 SitePrism.configure do |config|
-	config.use_implicit_waits = false
+	config.use_implicit_waits = true
 end
 
 # Hooks

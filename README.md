@@ -1,13 +1,36 @@
-# Policy calculations (test)
+# Policy calculations (exercise)
 
-## TODO: Quickstart
+## Requirements
+
+- Ruby 2.2.3
+
+## Quickstart
+
+- Clone the repo locally.
+- Prepare the system: `bundle`
+- Initialise the database: `bundle exec rake db:setup`
+- Run the server: `bundle exec rails server`
+- Browse to http://localhost:3000 and try it out.
+
+To activate the challenge features, browse to http://localhost:3000/flipper and
+enable them. (Currently only the birthday UI feature is implemented.)
+
+To run the feature specs: `bundle exec spinach`
+
+To run the unit tests: `bundle exec rspec`
+
+## Next / todo
+
+- One step in first challenge feature is failing - fix this
+- Second challenge
+- Proper validation of form inputs
+- Failure handling for create action
 
 ## Brief rationale for gem & methodology choices
 
-### Very plain views
-I've used no JavaScript and hardly any CSS because I just want to show a simple,
-minimal working example that meets the criteria. (I've been a little more fancy
-with some other things, see below.)
+### Plain views
+I've used standard Bootstrap and a couple of basic plugins as this is the
+fastest way to get something up and running that doesn't look too shabby.
 
 ### BDD: Spinach
 I prefer Spinach over Cucumber because, for step definitions, it uses standard
