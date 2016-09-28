@@ -20,6 +20,6 @@ SitePrism.configure do |config|
 end
 
 # Hooks
-# Spinach.hooks.before_scenario do
-#   DatabaseCleaner.clean
-# end
+Spinach.hooks.before_run do
+  DatabaseCleaner.clean
+end

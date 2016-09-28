@@ -3,14 +3,6 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
     require './db/seeds'
   end
 
-  step 'I am a 25-year-old man taking a four-day trip abroad' do
-    # Sugar
-  end
-
-  step 'I am a 55-year-old man taking a four-day trip abroad' do
-    # Sugar
-  end
-
   step 'the site does not have the date of birth feature enabled' do
     toggle_feature :birthday_ui, false
   end
@@ -36,6 +28,10 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
     @form_page.age_field.set 25
   end
 
+  step 'I enter my age as 65' do
+    @form_page.age_field.set 65
+  end
+
   step 'I enter my birth day as 24' do
     @form_page.birth_day_field.set 25
   end
@@ -58,6 +54,18 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
     @form_page.trip_duration_field.set 4
   end
 
+  step 'I enter my departure date as 10 October 2016' do
+    @form_page.departure_field.set '10/10/2016'
+  end
+
+  step 'I enter my return date as 23 October 2016' do
+    @form_page.return_field.set '10/23/2016'
+  end
+
+  step 'I enter my return date as 20 October 2016' do
+    @form_page.return_field.set '10/20/2016'
+  end
+
   step 'I submit my information' do
     @form_page.submit_button.click
     @quote_page = Pages::QuotePage.new
@@ -69,6 +77,14 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
 
   step 'I should see that it will cost me $90' do
     expect_price 90
+  end
+
+  step 'I should see that it will cost me $80' do
+    expect_price 80
+  end
+
+  step 'I should see that it will cost me $73' do
+    expect_price 73
   end
 
   def toggle_feature(feature_name, bool)
@@ -84,4 +100,11 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
   def expect_price(dollars)
     expect(@quote_page.price.text).to eq "$#{dollars}"
   end
+
+  # Syntactic sugar steps - for spec readability but no functionality:
+
+  step 'I am a 25-year-old man taking a four-day trip abroad' do; end
+  step 'I am a 55-year-old man taking a 30-day trip abroad' do; end
+  step 'I am a 65-year-old man taking a 13-day trip abroad' do; end
+  step 'I am a 55-year-old man taking a 10-day trip abroad' do; end
 end

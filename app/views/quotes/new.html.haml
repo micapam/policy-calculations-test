@@ -2,15 +2,22 @@
 %p So that we can calculate the price of your insurance, please tell us a couple of facts.
 = simple_form_for(@quote, html: { class: 'form-horizontal' }) do |f|
   - if feature_on? :birthday_ui
+    .row Date of birth
     .row
       .col-md-4
-        = f.input :dob_day, as: :numeric
+        = f.input :dob_day, as: :numeric, label: 'Day'
       .col-md-4
-        = f.input :dob_month, collection: @months
+        = f.input :dob_month, collection: @months, label: 'Month'
       .col-md-4
-        = f.input :dob_year, as: :numeric
-    -# %input{ 'data-provide' => 'datepicker' }
+        = f.input :dob_year, as: :numeric, label: 'Year'
   - else
-    = f.input :age, required: true
-  = f.input :trip_duration, required: true
+    = f.input :age, required: true, label: 'Your age, in years'
+  - if feature_on? :holiday_ui
+    .row
+      .col-md-4
+        = f.input :departure_date, input_html: { 'data-provide' => 'datepicker' }
+      .col-md-4
+        = f.input :return_date, input_html: { 'data-provide' => 'datepicker' }
+  - else
+    = f.input :trip_duration, required: true, label: 'Duration of your trip, in days'
   = f.submit 'Get quote'

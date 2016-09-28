@@ -13,7 +13,9 @@
 - Browse to <http://localhost:3000> and try it out.
 
 To activate the challenge features, browse to <http://localhost:3000/flipper>
-and enable them. (Currently only the birthday UI feature is implemented.)
+and enable them. If you want to see the date of birth feature,
+enable `birthday_ui`; to see the departure and return date feature, enable
+`holiday_ui`.
 
 To run the feature specs: `bundle exec spinach`
 
@@ -45,4 +47,4 @@ changes.
 
 ## Next / todo
 
-- Second challenge
+- Get the date pickers to use proper date format rather than American
