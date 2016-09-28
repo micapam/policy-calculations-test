@@ -8,7 +8,7 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
   end
 
   step 'I browse to the insurance price calculation page' do
-    @form_page = TripFormPage.new
+    @form_page = Pages::NewQuotePage.new
     @form_page.load
   end
 
@@ -17,7 +17,7 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
   end
 
   step 'I enter my trip duration as four days' do
-    @form_page.duration_field.set 4
+    @form_page.trip_duration_field.set 4
   end
 
   step 'I submit my information' do
@@ -25,7 +25,7 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
   end
 
   step 'I should see that it will cost me $50' do
-    @price_page = PricePage.new
-    expect(@price_page.price).to eq '50'
+    @quote_page = Pages::QuotePage.new
+    expect(@quote_page.price.text).to eq '$50'
   end
 end

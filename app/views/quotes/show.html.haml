@@ -3,7 +3,7 @@
 -if @quote.price.present?
   %p
     The cost of your insurance will be:
-    %span.label.label-info
+    %span.label.label-info.price
       = "$#{@quote.price.cost}"
 -else
   %p
