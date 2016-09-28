@@ -23,6 +23,10 @@ To run the unit tests: `bundle exec rspec`
 
 ## Brief rationale for gem & methodology choices
 
+### DB: SQLite
+For this kind of small-scale exercise I didn't see a point in using a full
+RDBMS. SQLite does the job!
+
 ### Plain views
 I've used standard Bootstrap and a couple of basic plugins as this is the
 fastest way to get something up and running that doesn't look too shabby.
