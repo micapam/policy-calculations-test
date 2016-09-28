@@ -10,21 +10,14 @@
 - Prepare the system: `bundle`
 - Initialise the database: `bundle exec rake db:setup`
 - Run the server: `bundle exec rails server`
-- Browse to http://localhost:3000 and try it out.
+- Browse to <http://localhost:3000> and try it out.
 
-To activate the challenge features, browse to http://localhost:3000/flipper and
-enable them. (Currently only the birthday UI feature is implemented.)
+To activate the challenge features, browse to <http://localhost:3000/flipper>
+and enable them. (Currently only the birthday UI feature is implemented.)
 
 To run the feature specs: `bundle exec spinach`
 
 To run the unit tests: `bundle exec rspec`
-
-## Next / todo
-
-- One step in first challenge feature is failing - fix this
-- Second challenge
-- Proper validation of form inputs
-- Failure handling for create action
 
 ## Brief rationale for gem & methodology choices
 
@@ -49,3 +42,10 @@ it keeps Spinach step definitions clean of view implementation details (such as
 CSS selectors); not only does this make the step definitions clearer, it means
 that usually only the SitePrism code needs to be updated after cosmetic view
 changes.
+
+## Next / todo
+
+- One step in first challenge feature is failing - fix this
+- Second challenge
+- Proper validation of form inputs
+- Failure handling for create action
