@@ -9,7 +9,7 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
      [60, 73, 80],
      [70, 80, 90],
      [82, 90, 100]].each_with_index do |age_costs, duration_idx|
-       age_pries.each_with_index do |cost, age_idx|
+       age_costs.each_with_index do |cost, age_idx|
          Fabricate(:price, cost: cost) do
            age_bracket ages[age_idx]
            trip_duration_bracket durations[duration_idx]

@@ -12,6 +12,29 @@ describe RangeBracket do
     end
   end
 
+  describe '::matching_value' do
+    let!(:low) { DummyRange.create(max: 10) }
+    let!(:medium) { DummyRange.create(min: 11, max: 20) }
+    let!(:high) { DummyRange.create(min: 21) }
+
+    subject { DummyRange.matching_value value }
+
+    context 'low value' do
+      let(:value) { 5 }
+      it { is_expected.to eq low }
+    end
+
+    context 'medium value' do
+      let(:value) { 15 }
+      it { is_expected.to eq medium }
+    end
+
+    context 'low value' do
+      let(:value) { 25 }
+      it { is_expected.to eq high }
+    end
+  end
+
   describe 'validation' do
     let!(:existing_range) { DummyRange.create(min: 10, max: 20) }
     subject { DummyRange.new(range_opts) }

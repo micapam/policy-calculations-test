@@ -7,6 +7,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'flipper'
 gem 'validates_overlap'
+gem 'jquery-rails'
+gem 'haml', '~> 4.0.7'
+gem 'haml-rails', '~> 0.9'
+gem 'simple_form'
+gem 'bootstrap', '~> 4.0.0.alpha4'
 
 group :development, :test do
   gem 'byebug'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928003258) do
+ActiveRecord::Schema.define(version: 20160928020133) do
 
   create_table "age_brackets", force: :cascade do |t|
     t.integer  "min"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20160928003258) do
     t.datetime "updated_at",               null: false
     t.index ["age_bracket_id"], name: "index_prices_on_age_bracket_id"
     t.index ["trip_duration_bracket_id"], name: "index_prices_on_trip_duration_bracket_id"
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.integer  "age"
+    t.integer  "trip_duration"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "trip_duration_brackets", force: :cascade do |t|
