@@ -2,6 +2,12 @@ class Quote < ApplicationRecord
   validates :age, :trip_duration, presence: true
 
   def price
+    @price ||= find_price
+  end
+
+  private
+
+  def find_price
     age_bracket = AgeBracket.matching_value age
     trip_duration_bracket = TripDurationBracket.matching_value trip_duration
 

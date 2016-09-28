@@ -1,21 +1,6 @@
 class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
   step 'the company has a pricing matrix' do
-    ages = ranges_to_models :age_bracket, [18, 49], [50, 59], [60, 69]
-
-    durations = ranges_to_models :trip_duration_bracket, [1, 7], [8, 14],
-      [15, 21], [22]
-
-    [[50, 60, 70],
-     [60, 73, 80],
-     [70, 80, 90],
-     [82, 90, 100]].each_with_index do |age_costs, duration_idx|
-       age_costs.each_with_index do |cost, age_idx|
-         Fabricate(:price, cost: cost) do
-           age_bracket ages[age_idx]
-           trip_duration_bracket durations[duration_idx]
-         end
-       end
-    end
+    require './db/seeds'
   end
 
   step 'I am a 25-year-old man taking a four-day trip abroad' do
@@ -42,13 +27,5 @@ class Spinach::Features::CalculatePrice < Spinach::FeatureSteps
   step 'I should see that it will cost me $50' do
     @price_page = PricePage.new
     expect(@price_page.price).to eq '50'
-  end
-
-  private
-
-  def ranges_to_models(model_name, *ranges)
-    ranges.collect do |min, max|
-      Fabricate(model_name, min: min, max: max)
-    end
   end
 end

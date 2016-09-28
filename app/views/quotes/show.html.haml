@@ -1,2 +1,12 @@
-%h1 Quotes#show
-%p Find me in app/views/quotes/show.html.haml
+%h1 Your quote
+
+-if @quote.price.present?
+  %p
+    The cost of your insurance will be:
+    %span.label.label-info
+      = "$#{@quote.price.cost}"
+-else
+  %p
+    No quote could be provided for the given combination of age and trip duration.
+
+=link_to 'Try again', new_quote_path
