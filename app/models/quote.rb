@@ -5,6 +5,14 @@ class Quote < ApplicationRecord
     @price ||= find_price
   end
 
+  def as_json
+    hash = super
+    hash[:age_bracket] = age_bracket = AgeBracket.matching_value age
+    hash[:trip_duration_bracket] = TripDurationBracket.matching_value trip_duration
+    hash[:price_count] = Price.count
+    hash
+  end
+
   private
 
   def find_price

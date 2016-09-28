@@ -45,7 +45,4 @@ changes.
 
 ## Next / todo
 
-- One step in first challenge feature is failing - fix this
 - Second challenge
-- Proper validation of form inputs
-- Failure handling for create action

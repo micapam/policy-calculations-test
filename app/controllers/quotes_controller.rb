@@ -1,24 +1,27 @@
 class QuotesController < ApplicationController
-  def new
-    @quote = QuoteForm.new Quote.new
+  before_action :initialise_form, only: [:new, :create]
 
-    @months = Date::MONTHNAMES.compact.each_with_index.collect do |m, i|
-      [m, i + 1]
-    end
+  def new
   end
 
   def create
-    @form = QuoteForm.new Quote.new
-
-    if @form.validate(params[:quote])
-      @form.save
-      redirect_to quote_path id: @form.model.id
+    if @quote.validate(params[:quote])
+      @quote.save
+      redirect_to quote_path id: @quote.model.id
     else
-      #TODO Handle errors
+      render :new
     end
   end
 
   def show
     @quote = Quote.find params[:id]
+  end
+
+  def initialise_form
+    @quote = QuoteForm.new Quote.new
+
+    @months = Date::MONTHNAMES.compact.each_with_index.collect do |m, i|
+      [m, i + 1]
+    end
   end
 end
